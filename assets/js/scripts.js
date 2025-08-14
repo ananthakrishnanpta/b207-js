@@ -71,20 +71,43 @@ const products = [
     }
 ]
 
+let p = console.log;
 
-// const card_markup = `
-//                 <div class="card shadow-sm">
-//                     <div class="card-img">
-//                         <img src="media/products/${product.img_url}" alt="${product.title}-img">
-//                     </div>
-//                     <div class="card-body">
-//                         <h6 class="card-title">${product.title}</h6>
-//                         <p class="card-text">
-//                             Rs. ${product.price}
-//                         </p>
-//                         <button class="btn btn-success" id="addCart-${product.id}">Add To Cart</button>
-//                     </div>
-//                 </div>`
 
-console
+function createCard(product){
+    const card_markup = `
+                <div class="card shadow-sm">
+                    <div class="card-img">
+                        <img src="media/products/${product.img_url}" alt="${product.title}-img">
+                    </div>
+                    <div class="card-body">
+                        <h6 class="card-title">${product.title}</h6>
+                        <p class="card-text">
+                            Rs. ${product.price}
+                        </p>
+                        <button class="btn btn-success" id="addCart-${product.id}">Add To Cart</button>
+                    </div>
+                </div>`;
+    return card_markup;    
+}
+
+
+function renderProducts(products){
+    const product_container = document.getElementById('product-container');
+    
+    for (let product of products){
+        product_container.innerHTML += createCard(product);
+    }
+}
+
+renderProducts(products);
+
+// query reference to the elements
+// const divs = document.getElementsByTagName('div');
+// const boxes = document.getElementsByClassName('a');
+// const product_container = document.getElementById('product-container');
+
+// const x = document.querySelector('');
+// p(x);
+
 
